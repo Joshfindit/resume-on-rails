@@ -1,14 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<!-- <div class="ui one column padded grid">
-  <div class="column">
-    <h2 class="ui icon header">
-      <img src="https://avatars2.githubusercontent.com/u/1937155?v=3&s=460" class="ui circular image">
-      Joshua Buxton
-    </h2>
-  </div>
-</div> -->
-
 <div class="ui text container">
   <div class="ui items">
     <div class="item">
@@ -30,10 +21,6 @@
               <i class="fa fa-apple" aria-hidden="true"></i>
               AskDifferent
             </a>
-            <a class="ui image label" href="/contact">
-              <i class="fa fa-apple" aria-hidden="true"></i>
-              Contact Me
-            </a>
         </div>
         <div class="description">
           <p>I love <a href="http://tools.pingdom.com/fpt/cp0Q9H/http://www.stephanieallen.ca">metrics</a>, <a href="http://joshfindit.github.io/Geometry-in-D3.js/d3/circle.html">precision</a>, and <a href="https://github.com/Joshfindit/Slackilio">automation</a>.</br>
@@ -46,44 +33,42 @@
   </div>
 
 <div class="ui vertical masthead center aligned segment">
+<h2>Contact me</h2>
 </div>
 <div class="ui hidden divider"></div>
 <div class="ui text container">
-
-  <p>
-    <strong>Profile:</strong>
-    <div class="ui bulleted list">
-      <% ProfileItem.all.to_a.shuffle.each do |profileItem| -%>
-        <div class="item"><%= link_to profileItem.name, profileItem %></div>
-      <% end -%>
-    </div>
-  </p>
-
-  <p>
-    <strong>Experience:</strong>
-    <div class="ui bulleted list">
-      <% Job.all.sort { |b,a| a.end_date <=> b.end_date }.each do |job| -%>
-        <div class="item"><%= link_to job.name, job -%> <span class="resumedetail"><%= job.start_date -%> <%= "- #{job.end_date}" if job.end_date.presence -%></span></div>
-      <% end -%>
-    </div>
-  </p>
-
-  <p>
-      <strong>Education:</strong>
-      <div class="ui bulleted list">
-        <% Education.all.sort { |b,a| a.end_date <=> b.end_date }.each do |education| -%>
-          <div class="item"><%= link_to education.name, education %> <span class="resumedetail"><%#= "#{education.company}, " if education.company.presence-%> <%= "#{education.start_date} - " if education.start_date.presence-%> <%= "#{education.end_date}" if education.end_date.presence -%></span></div>
-        <% end -%>
-      </div>
-  </p>
-
-  <p>
-      <strong>Volunteer Work:</strong>
-      <div class="ui bulleted list">
-        <% VolunteerWork.all.sort { |b,a| a.dates[0] <=> b.dates[0] }.each do |volunteerwork| -%>
-          <div class="item"><%= link_to volunteerwork.name, volunteerwork %> <span class="resumedetail"><%#= "#{volunteerwork.company}, " if volunteerwork.company.presence-%> <%= volunteerwork.dates.map{|tag| tag }.join(", ").html_safe if volunteerwork.dates.presence-%></span></div>
-        <% end -%>
-      </div>
-  </p>
+<form action="https://formspree.io/joshuaresumecontactform@joshuabuxton.ca" method="POST" class="ui form">
+    <div class="field"><input type="text" name="email" class="field" placeholder="Email Address"></div>
+    <div class="field"><textarea type="text" name="content" rows="5" placeholder="What would you like to say?"></textarea></div>
+    <input type="hidden" name="_next" value="/thanks/">
+    <input type="hidden" name="_subject" value="New submission!">
+    <input type="text" name="_gotcha" style="display:none">
+    <input type="submit" class="ui right floated button" value="Say Hello">
+  </form>
 </div>
 <div class="ui hidden divider"></div>
+<div class="ui hidden divider"></div>
+<div class="ui hidden divider"></div>
+
+
+<script type="text/javascript">
+
+  var nodes = [
+    {
+      name: 'Home',
+      url: '/',
+      target: [0]
+    },
+    {
+      name: 'Contact (you are here)',
+      url: '',
+      target: [0]
+    },
+    {
+      name: 'About',
+      url: '/about',
+      target: [0]
+    }
+  ];
+</script>
+<script type="text/javascript" src="/js/ResumeIndexMenuinD3.js"></script>
