@@ -33,53 +33,21 @@
   </div>
 
 <div class="ui vertical masthead center aligned segment">
-<h2>About this site</h2>
+<h2>Contact me</h2>
 </div>
 <div class="ui hidden divider"></div>
 <div class="ui text container">
-  <div class="ui center aligned segment">
-  	Built with Rails and Neo4j using custom generator templates.</br>
-  	D3.js was then added and the site was finished by hand.</br>
-  	With the JSON objects already built, it would take about 2 days to recreate.
-  </div>
-  <p>
-    <strong>Web implementation</strong>
-    <div class="ui bulleted list">
-      <div class="item">Set up local Dev environment with Rails 5</div>
-      <div class="item">Built the site scaffold using the <a href="https://github.com/Joshfindit/Semantic-Scaffold-for-Neo4j">custom generators I created</a></div>
-      <div class="item">Plan out and implement the Graph Model</div>
-      <div class="item">Test, revise, test using desktop, mobile, tablet, and Pingdom.com</div>
-      <div class="item">Push the code to Github</div>
-      <div class="item">Create import functions that map JSON files to the Graph model</div>
-      <div class="item">Create a rake task to import from the data directory</div>
-      <div class="item">Use AWS Route53 to give the site a public url</div>
-      <div class="item">Set up Google Analytics on the uploaded page</div>
-    </div>
-  </p>
-  <p>
-    <strong>System Admin</strong>
-    <div class="ui bulleted list">
-      <div class="item">Pulled the code from Github to a fresh DigitalOcean VM with the Ubuntu 16.04 base image</div>
-      <div class="item">Used environment variables for any sensitive information</div>
-      <div class="item">Installed Neo4j standalone with all dependencies (chose OpenJDK 8 for stability)</div>
-      <div class="item">Installed Rails 5 and all gems</div>
-      <div class="item">Ran the previously-created rake task 'import_all' to parse the JSON entries through their class methods and create the graph</div>
-      <div class="item">Configured 'ufw' to forward traffic from port 80 to 3000 and close all other traffic, allowing the web server to run as an unprivileged user</div>
-    </div>
-  </p>
-
-  <p>
-    <strong>If I were to remake this site a few months from now, it would be different</strong>
-    <div class="ui bulleted list">
-      <div class="item">Rails/Sinatra would be used to create a lightweight API</div>
-      <div class="item">A front-end framework would be used, leveraging React principles to create a uniform experience with minimal boilerplate</br>
-      					<span style='color:rgba(50,50,50,0.3);'>Partials could have been used in this site to reduce boilerplate, but in testing they are consistently slow.</span>
-      </div>
-      <div class="item">D3.js would be used to greater effect, hot-loading content from the graph</div>
-      
-    </div>
-  </p>
+<form action="https://formspree.io/joshuaresumecontactform@joshuabuxton.ca" method="POST" class="ui form">
+    <div class="field"><input type="text" name="email" class="field" placeholder="Email Address"></div>
+    <div class="field"><textarea type="text" name="content" rows="5" placeholder="What would you like to say?"></textarea></div>
+    <input type="hidden" name="_next" value="/thanks/">
+    <input type="hidden" name="_subject" value="New submission!">
+    <input type="text" name="_gotcha" style="display:none">
+    <input type="submit" class="ui right floated button" value="Say Hello">
+  </form>
 </div>
+<div class="ui hidden divider"></div>
+<div class="ui hidden divider"></div>
 <div class="ui hidden divider"></div>
 
 
@@ -92,13 +60,13 @@
       target: [0]
     },
     {
-      name: 'About (you are here)',
+      name: 'Contact (you are here)',
       url: '',
       target: [0]
     },
     {
-      name: 'Contact',
-      url: '/contact',
+      name: 'About',
+      url: '/about',
       target: [0]
     }
   ];
