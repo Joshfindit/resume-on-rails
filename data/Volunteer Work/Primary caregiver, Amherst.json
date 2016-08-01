@@ -1,0 +1,30 @@
+{
+  "volunteerwork": {
+    "name": "Primary Mental Health Caregiver",
+    "dates": ["2011-2016"],
+    "company": "In-Home",
+    "city": "Amherst",
+    "province": "Nova Scotia",
+    "tags": ["support", "community", "teaching people", "integrity", "high-stress environment", "documentation", "strategy", "negotiation", "communication"]
+  },
+  "skills": [
+    {
+      "type": "Customer Service / Communication / Hospitality",
+      "name": "Filled in for mental health counselors",
+      "description": "Keeping progress on track, checking in, being available 24/7 in case of breakdowns, talking through issues, and so-on.\nCoordinated with the counselors and did research to provide the best care.",
+      "tags": ["teamwork", "teaching people", "organization", "strategy", "negotiation", "communication", "high-stress environment"]
+    },
+    {
+      "type": "Management and Process Related",
+      "name": "Maintained a consistent daily household routine",
+      "description": "",
+      "tags": ["strategy", "negotiation", "communication", "high-stress environment"]
+    },
+    {
+      "type": "Customer Service / Communication / Hospitality",
+      "name": "Diffused high-stress situations with patience and understanding",
+      "description": "",
+      "tags": ["high-stress environment", "strategy", "negotiation", "communication", "strategy"]
+    }
+  ]
+}

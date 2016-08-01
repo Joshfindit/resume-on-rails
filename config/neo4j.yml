@@ -1,0 +1,10 @@
+development:
+  type: server_db
+  url: <%= ENV["RESUME_DEV_URL"] || "http://localhost:7474" %>
+test:
+  type: server_db
+  url: <%= ENV["RESUME_PROD_URL"] || "http://localhost:7575" %>
+production:
+  type: server_db
+  url: <%= ENV["RESUME_PROD_URL"] || "http://localhost:7474" %>
+

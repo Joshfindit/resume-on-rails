@@ -1,0 +1,24 @@
+{
+  "job": {
+    "name": "iPhone Game Designer",
+    "start_date": "2009",
+    "end_date": "2010",
+    "company": "Gaming Physically",
+    "city": "Edmonton",
+    "province": "Alberta"
+  },
+  "skills": [
+    {
+      "type": "IT Related",
+      "name": "Designed a portfolio of 3 games, focusing on realistic physics and classic gameplay mechanics",
+      "description": "",
+      "tags": ["programming", "UX", "UI", "strategy"]
+    },
+    {
+      "type": "Management and Process Related",
+      "name": "Raised initial funding",
+      "description": "Created investor proposals, went on-site with potential investors and presented in order to successfully secure funding",
+      "tags": ["fundraising", "startup", "finance"]
+    }
+  ]
+}

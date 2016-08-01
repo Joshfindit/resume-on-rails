@@ -1,0 +1,57 @@
+<div class="ui text container">
+  <div class="ui form">
+    <%= form_for(@city) do |f| %>
+      <% if @city.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@city.errors.count, "error") %> prohibited this city from being saved:</h2>
+          <ul>
+            <% @city.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+
+
+         
+      <div class="field">
+        <%= f.label :province_id %><br>
+        <% classToSelectFrom = @city.class.associations[:province].model_class.to_s.constantize %>
+        <%= f.collection_select(:province, classToSelectFrom.order(:name), :id, :name, options = {:prompt => "Please Select an Item", :selected => @city.province.pluck(:id)}, html_options = {:multiple => true, :class=>"search"}) %>
+      </div>
+
+
+         
+      <div class="field">
+        <%= f.label :job_here_id %><br>
+        <% classToSelectFrom = @city.class.associations[:job_here].model_class.to_s.constantize %>
+        <%= f.collection_select(:job_here, classToSelectFrom.order(:name), :id, :name, options = {:prompt => "Please Select an Item", :selected => @city.job_here.pluck(:id)}, html_options = {:multiple => true, :class=>"search"}) %>
+      </div>
+
+
+         
+      <div class="field">
+        <%= f.label :education_here_id %><br>
+        <% classToSelectFrom = @city.class.associations[:education_here].model_class.to_s.constantize %>
+        <%= f.collection_select(:education_here, classToSelectFrom.order(:name), :id, :name, options = {:prompt => "Please Select an Item", :selected => @city.education_here.pluck(:id)}, html_options = {:multiple => true, :class=>"search"}) %>
+      </div>
+
+
+      <div class="actions">
+        <%= f.submit html_options = {:class=>"ui button"} %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+$('.search')
+  .dropdown()
+;
+</script>

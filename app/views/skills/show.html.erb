@@ -1,0 +1,81 @@
+<p id="notice"><%= notice %></p>
+
+<%
+  nodes = [
+    {
+      name: 'Other Skills',
+      url: skills_path
+    },
+    {
+      name: '(you are here)',
+      url: '',
+      target: [0]
+    },
+    {
+      name: 'Home',
+      url: '/',
+      target: [0]
+    },
+    {
+      name: 'Tags',
+      url: '/tags',
+      target: [1]
+    }
+  ]
+%>
+
+<div class="ui vertical masthead center aligned segment">
+  <h1 class="ui header"><%= truncate(@skill.name, :length => 30, :separator => ' ') %></h1>
+</div>
+
+<div class="ui text container">
+
+  <p>
+    <strong>Name:</strong>
+    <%= @skill.name -%>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @skill.description -%>
+  </p>
+
+  <p>
+    <strong>Used at the following:</strong>
+    <div class="ui bulleted list">
+      <% if !@skill.jobs.empty? -%>
+        <% @skill.jobs.each do |job| -%>
+          <div class="item"><%= link_to "#{job.name}, #{job.company}", job %></div>
+        <% end -%>
+      <% end -%>
+      <% if !@skill.volunteer_work.empty? -%>
+        <% @skill.volunteer_work.each do |volunteer_work| -%>
+          <div class="item"><%= link_to "#{volunteer_work.name}, #{volunteer_work.company}", volunteer_work %></div>
+        <% end -%>
+      <% end -%>
+
+    </div>
+  </p>
+
+  <p>
+    <strong>Tags:</strong>
+    <% if !@skill.tags.empty? -%>
+      <%= @skill.tags.map{|tag| link_to(tag.name, tag) }.join(", ").html_safe %>
+    <% end -%>
+  </p>
+
+  <p>
+    <strong>Skill category:</strong>
+    <% if !@skill.skill_category.nil? -%>
+      <% @skill.skill_category.each do |skill_category| -%>
+        <%= link_to skill_category.name, skill_category %>
+      <% end -%>
+    <% end -%>
+  </p>
+</div>
+<div class="ui hidden divider"></div>
+
+<script type="text/javascript">
+  var nodes = <%= raw nodes.to_json %>;
+</script>
+<script type="text/javascript" src="/js/ResumeIndexMenuinD3.js"></script>

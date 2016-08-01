@@ -1,0 +1,24 @@
+{
+  "job": {
+    "name": "Researcher / Educator for the Healing Arts",
+    "start_date": "2013",
+    "end_date": "2015",
+    "company": "Gateway Development Inc.",
+    "city": "Amherst",
+    "province": "Nova Scotia"
+  },
+  "skills": [
+    {
+      "type": "Customer Service / Communication / Hospitality",
+      "name": "Create training material to educate people about holistic health, diet, and the healing arts",
+      "description": "",
+      "tags": ["documentation", "teaching people"]
+    },
+    {
+      "type": "Customer Service / Communication / Hospitality",
+      "name": "Deeply research the role of inflammation in chronic pain and mental health issues",
+      "description": "",
+      "tags": ["documentation", "research", "mental health", "chronic pain"]
+    }
+  ]
+}

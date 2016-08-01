@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+
+<div class="ui very padded container ">
+  <h1>Tags</h1>
+
+  <table class="ui very basic celled table">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tags.each do |tag| %>
+        <tr>
+          <td rowspan="3" class="top aligned">
+              <%= link_to tag.name, tag %>
+          </td>
+          <tr>
+            <td>
+              <%- if !tag.tagged_skill.empty? %>
+                <%#- tag.tagged_skill.each do |tagged_skill| -%>
+                  <%#= link_to tagged_skill.name, tagged_skill %>
+                <%#- end -%>
+                <h4>Tagged skills:</h4>
+                <%= tag.tagged_skill.map{|skill| link_to(skill.name, skill) }.join(", ").html_safe %>
+              <%- end -%>
+            </td>
+            </tr>
+            <tr>
+            <td>
+              <%- if !tag.tagged_profile_item.empty? %>
+              <h4>Tagged Profile Items:</h4>
+                <%- tag.tagged_profile_item.each do |tagged_profile_item| -%>
+                  <%= link_to tagged_profile_item.name, tagged_profile_item %>
+                <%- end -%>
+              <%- end -%>
+            </td>
+          </tr>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<script type="text/javascript">
+
+  var nodes = [
+    {
+      name: 'Home',
+      url: '/',
+      target: [0]
+    },
+    {
+      name: 'Education',
+      url: '/education',
+      target: [0]
+    },
+    {
+      name: 'Work Experience',
+      url: '/jobs',
+      target: [0]
+    },
+    {
+      name: 'Volunteer Work',
+      url: '/volunteer_work',
+      target: [0]
+    },
+    {
+      name: 'Skills',
+      url: '/skills',
+      target: [0]
+    },
+    {
+      name: 'Tags (you are here)',
+      url: '/tags',
+      target: [4]
+    }
+  ];
+</script>
+<script type="text/javascript" src="/js/ResumeIndexMenuinD3.js"></script>

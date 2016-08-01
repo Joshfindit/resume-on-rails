@@ -1,0 +1,49 @@
+<div class="ui text container">
+  <div class="ui form">
+    <%= form_for(@tag) do |f| %>
+      <% if @tag.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@tag.errors.count, "error") %> prohibited this tag from being saved:</h2>
+          <ul>
+            <% @tag.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+
+
+         
+      <div class="field">
+        <%= f.label :tagged_skill_id %><br>
+        <% classToSelectFrom = @tag.class.associations[:tagged_skill].model_class.to_s.constantize %>
+        <%= f.collection_select(:tagged_skill, classToSelectFrom.order(:name), :id, :name, options = {:prompt => "Please Select an Item", :selected => @tag.tagged_skill.pluck(:id)}, html_options = {:multiple => true, :class=>"search"}) %>
+      </div>
+
+
+         
+      <div class="field">
+        <%= f.label :tagged_profile_item_id %><br>
+        <% classToSelectFrom = @tag.class.associations[:tagged_profile_item].model_class.to_s.constantize %>
+        <%= f.collection_select(:tagged_profile_item, classToSelectFrom.order(:name), :id, :name, options = {:prompt => "Please Select an Item", :selected => @tag.tagged_profile_item.pluck(:id)}, html_options = {:multiple => true, :class=>"search"}) %>
+      </div>
+
+
+      <div class="actions">
+        <%= f.submit html_options = {:class=>"ui button"} %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+$('.search')
+  .dropdown()
+;
+</script>

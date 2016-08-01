@@ -1,0 +1,75 @@
+<div class="ui text container">
+  <div class="ui form">
+    <%= form_for(@job) do |f| %>
+      <% if @job.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+          <ul>
+            <% @job.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label :start_date %><br>
+        <%= f.text_field :start_date %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label :end_date %><br>
+        <%= f.text_field :end_date %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label :company %><br>
+        <%= f.text_field :company %>
+      </div>
+
+
+         
+      <div class="field">
+        <%= f.label :city_id %><br>
+        <% classToSelectFrom = @job.class.associations[:city].model_class.to_s.constantize %>
+        <%= f.collection_select(:city, classToSelectFrom.order(:name), :id, :name, options = {:prompt => "Please Select an Item", :selected => @job.city.pluck(:id)}, html_options = {:multiple => true, :class=>"search"}) %>
+      </div>
+
+
+         
+      <div class="field">
+        <%= f.label :province_id %><br>
+        <% classToSelectFrom = @job.class.associations[:province].model_class.to_s.constantize %>
+        <%= f.collection_select(:province, classToSelectFrom.order(:name), :id, :name, options = {:prompt => "Please Select an Item", :selected => @job.province.pluck(:id)}, html_options = {:multiple => true, :class=>"search"}) %>
+      </div>
+
+
+         
+      <div class="field">
+        <%= f.label :skills_id %><br>
+        <% classToSelectFrom = @job.class.associations[:skills].model_class.to_s.constantize %>
+        <%= f.collection_select(:skills, classToSelectFrom.order(:name), :id, :name, options = {:prompt => "Please Select an Item", :selected => @job.skills.pluck(:id)}, html_options = {:multiple => true, :class=>"search"}) %>
+      </div>
+
+
+      <div class="actions">
+        <%= f.submit html_options = {:class=>"ui button"} %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+$('.search')
+  .dropdown()
+;
+</script>

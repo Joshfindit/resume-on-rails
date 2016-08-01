@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<%
+  nodes = [
+    {
+      name: 'Other Skill Categories',
+      url: skill_categories_path
+    },
+    {
+      name: '(you are here)',
+      url: '',
+      target: [0]
+    },
+    {
+      name: 'Home',
+      url: '/',
+      target: [0]
+    }
+  ]
+%>
+
+<div class="ui vertical masthead center aligned segment">
+  <h1 class="ui header">Skill Category: <%= @skill_category.name -%></h1>
+</div>
+
+<div class="ui text container">
+  <p>
+    <strong>Skills:</strong>
+    <% if !@skill_category.skills.empty? -%>
+      <div class="ui bulleted list">
+        <% @skill_category.skills.each do |skills| -%>
+          <div class="item"><%= link_to skills.name, skills %></div>
+        <% end -%>
+      </div>
+    <% end -%>
+  </p>
+</div>
+
+<script type="text/javascript">
+  var nodes = <%= raw nodes.to_json %>;
+</script>
+<script type="text/javascript" src="/js/ResumeIndexMenuinD3.js"></script>

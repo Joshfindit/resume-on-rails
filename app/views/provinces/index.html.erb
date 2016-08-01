@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<div class="ui very padded container ">
+  <h1>Provinces</h1>
+
+  <table class="ui very basic celled table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>City</th>
+        <th>Experience here</th>
+        <th>Education here</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @provinces.each do |province| %>
+        <tr>
+          <td>
+              <%= link_to province.name, province %>
+          </td>
+          <td>
+            <%- if !province.city.empty? %>
+              <%= province.city.map{|city| link_to(city.name, city) }.join(", ").html_safe %>
+            <%- end -%>
+          </td>
+          <td>
+            <%- if !province.job_here.empty? %>
+              <%= province.job_here.map{|job| link_to(job.name, job) }.join(", ").html_safe %>
+            <%- end -%>
+          </td>
+          <td>
+            <%- if !province.education_here.empty? %>
+              <%= province.education_here.map{|education| link_to(education.name, education) }.join(", ").html_safe %>
+            <%- end -%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+<script type="text/javascript">
+
+  var nodes = [
+    {
+      name: 'Home',
+      url: '/',
+      target: [0]
+    },
+    {
+      name: 'Provinces (you are here)',
+      url: '',
+      target: [0]
+    },
+    {
+      name: 'Cities',
+      url: '/cities',
+      target: [1]
+    },
+    {
+      name: 'Education',
+      url: '/education',
+      target: [0]
+    },
+    {
+      name: 'Work Experience',
+      url: '/jobs',
+      target: [0]
+    },
+    {
+      name: 'Volunteer Work',
+      url: '/volunteer_work',
+      target: [0]
+    },
+    {
+      name: 'Skill Categories',
+      url: '/skill_categories',
+      target: [0]
+    }
+  ];
+</script>
+<script type="text/javascript" src="/js/ResumeIndexMenuinD3.js"></script>

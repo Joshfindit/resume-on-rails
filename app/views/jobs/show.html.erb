@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<%
+  nodes = [
+    {
+      name: 'Other Work',
+      url: jobs_path
+    },
+    {
+      name: '(you are here)',
+      url: '',
+      target: [0]
+    } 
+  ]
+%>
+
+<div class="ui hidden divider"></div>
+
+<div class="ui vertical masthead center aligned segment">
+  <h1 class="ui header"><%= @job.name -%></h1>
+</div>
+
+
+<div class="ui text container">
+  <p>
+    <% if @job.start_date.present? && @job.end_date.present? %>
+      <%= @job.start_date -%> - <%= @job.end_date -%>
+    <% elsif @job.start_date.present? && !@job.end_date.present? %>
+      <%= @job.start_date %>
+    <% elsif !@job.start_date.present? && @job.end_date.present? %>
+      <%= @job.end_date %>
+    <% end %>  
+  </p>
+  <p>
+    <strong>Company:</strong>
+    <%= @job.company -%>
+  </p>
+
+  <p>
+    <%- if !@job.city.empty? -%>
+      <%- @job.city.each do |city| -%>
+        <%- nodes.push({name: city.name, url: city_url(city), target: [1] }) -%>
+        <%= link_to city.name, city -%>, 
+      <%- end -%>
+    <%- end -%>
+    <%- if !@job.province.empty? -%>
+      <%- @job.province.each do |province| -%>
+        <%= link_to province.name, province -%>
+      <%- end -%>
+    <%- end -%>
+  </p>
+
+  <p>
+    <strong>Skills:</strong>
+    <% if !@job.skills.empty? -%>
+      <div class="ui bulleted list">
+        <% @job.skills.each do |skill| -%>
+          <div class="item"><%= link_to skill.name, skill %></div>
+        <% end -%>
+      </div>
+    <% end -%>
+  </p>
+</div>
+
+<
+<script type="text/javascript">
+  var nodes = <%= raw nodes.to_json %>;
+</script>
+<script type="text/javascript" src="/js/ResumeIndexMenuinD3.js"></script>

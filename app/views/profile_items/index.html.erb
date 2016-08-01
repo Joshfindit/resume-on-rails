@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<div class="ui very padded container ">
+  <h1>Profile Items</h1>
+
+  <table class="ui very basic celled table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Tags</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @profile_items.each do |profile_item| %>
+        <tr>
+          <td>
+              <%= link_to profile_item.name, profile_item %>
+          </td>
+          <td>
+            <%- if !profile_item.tags.empty? %>
+              <%= profile_item.tags.map{|tag| link_to(tag.name, tag) }.join(", ").html_safe %>
+            <%- end -%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<script type="text/javascript">
+
+  var nodes = [
+    {
+      name: 'Home',
+      url: '/',
+      target: [0]
+    },
+    {
+      name: 'Profile Items (you are here)',
+      url: '',
+      target: [0]
+    },
+    {
+      name: 'Tags',
+      url: '/tags',
+      target: [1]
+    }
+  ];
+</script>
+<script type="text/javascript" src="/js/ResumeIndexMenuinD3.js"></script>

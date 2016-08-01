@@ -1,0 +1,36 @@
+{
+  "job": {
+    "name": "Senior Network Administrator",
+    "start_date": "2008",
+    "end_date": "2009",
+    "company": "Surefire IT Solutions Inc.",
+    "city": "Edmonton",
+    "province": "Alberta"
+  },
+  "skills": [
+      {
+        "type": "IT Related",
+        "name": "Created an IVR system with a web front-end.",
+        "description": "Using Asterix on Linux, created a system for a client that was used to track contractors. They would call in from the work location and left a voicemail checking in then cheking out.\nOn the back-end, the client could see how long someone worked, who they were working for, and business costs associated",
+        "tags": ["programming", "system management", "linux", "php"]
+      },
+      {
+        "type": "IT Related",
+        "name": "Set up and maintained networks for business clients of between 10 and 50 employees",
+        "description": "",
+        "tags": ["technical", "system management", "networking"]
+      },
+      {
+        "type": "Management and Process Related",
+        "name": "Kept detailed records of all work done in a central ticket-based system",
+        "description": "",
+        "tags": ["documentation"]
+      },
+      {
+        "type": "Customer Service / Communication / Hospitality",
+        "name": "Met with clients to understand thier needs and resolve any issues",
+        "description": "",
+        "tags": ["support", "negotiation", "communication"]
+      }
+  ]
+}

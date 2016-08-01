@@ -1,0 +1,55 @@
+<div class="ui text container">
+  <div class="ui form">
+    <%= form_for(@skill) do |f| %>
+      <% if @skill.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@skill.errors.count, "error") %> prohibited this skill from being saved:</h2>
+          <ul>
+            <% @skill.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label :description %><br>
+        <%= f.text_area :description %>
+      </div>
+
+
+         
+      <div class="field">
+        <%= f.label :tags_id %><br>
+        <% classToSelectFrom = @skill.class.associations[:tags].model_class.to_s.constantize %>
+        <%= f.collection_select(:tags, classToSelectFrom.order(:name), :id, :name, options = {:prompt => "Please Select an Item", :selected => @skill.tags.pluck(:id)}, html_options = {:multiple => true, :class=>"search"}) %>
+      </div>
+
+
+         
+      <div class="field">
+        <%= f.label :skill_category_id %><br>
+        <% classToSelectFrom = @skill.class.associations[:skill_category].model_class.to_s.constantize %>
+        <%= f.collection_select(:skill_category, classToSelectFrom.order(:name), :id, :name, options = {:prompt => "Please Select an Item", :selected => @skill.skill_category.pluck(:id)}, html_options = {:multiple => true, :class=>"search"}) %>
+      </div>
+
+
+      <div class="actions">
+        <%= f.submit html_options = {:class=>"ui button"} %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+$('.search')
+  .dropdown()
+;
+</script>

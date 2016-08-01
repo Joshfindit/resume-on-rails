@@ -1,0 +1,24 @@
+{
+  "job": {
+    "name": "Web Page Implementation / Maintenance / Upkeep",
+    "start_date": "2001",
+    "end_date": "2006",
+    "company": "Western Instruments Inc.",
+    "city": "Villeneuve",
+    "province": "Alberta"
+  },
+  "skills": [
+    {
+      "type": "IT Related",
+      "name": "Implemented client website to showcase products. Created from scratch, implemented user permissions",
+      "description": "Created from scratch using php, HTML, CSS, MySQL.\nImplemented user permissions for confidential product documentation.",
+      "tags": ["technical", "organization", "php", "MySQL", "HTML", "CSS"]
+    },
+    {
+      "type": "IT Related",
+      "name": "Maintained and updated client website over time. Added more products, moved from simple password-based permission to individual users, proactively worked on security",
+      "description": "",
+      "tags": ["technical", "php", "MySQL", "HTML", "CSS"]
+    }
+  ]
+}

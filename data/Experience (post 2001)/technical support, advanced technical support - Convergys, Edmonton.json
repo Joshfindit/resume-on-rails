@@ -1,0 +1,48 @@
+{
+  "job": {
+    "name": "Technical Support, Advanced Technical Support",
+    "start_date": "2002",
+    "end_date": "2004",
+    "company": "Convergys",
+    "city": "Edmonton",
+    "province": "Alberta"
+  },
+  "skills": [
+    {
+      "type": "Management and Process Related",
+      "name": "Kept detailed records of all work done in a central ticket-based system",
+      "description": "",
+      "tags": ["documentation"]
+    },
+    {
+      "type": "IT Related",
+      "name": "Troubleshot hardware and software",
+      "description": "",
+      "tags": ["hardware", "technical", "organization", "troubleshooting"]
+    },
+    {
+      "type": "IT Related",
+      "name": "Joined a team of 19 people world-wide as part of Hewlett-Packard’s 3rd Party Support Department; In this position I maintained a greater than 90% first call resolution rate while fielding a broad range of hardware, software and networking issues",
+      "description": "",
+      "tags": ["hardware", "technical", "organization", "troubleshooting"]
+    },
+    {
+      "type": "IT Related",
+      "name": "Became known within this advanced 3rd Party Support Department as a “guru”, and was relied upon unofficially by many of the 2000 people in the call centre, including Senior Technical Agents from all departments",
+      "description": "",
+      "tags": ["hardware", "technical", "organization", "troubleshooting", "teamwork"]
+    },
+    {
+      "type": "Management and Process Related",
+      "name": "Created comprehensive processes and documentation in an easy to understand format",
+      "description": "",
+      "tags": ["documentation", "teaching people"]
+    },
+    {
+      "type": "Customer Service / Communication / Hospitality",
+      "name": "Maintained focus on customer service and metrics in a high stress envronmemt",
+      "description": "",
+      "tags": ["teamwork", "support", "documentation", "high-stress environment"]
+    }
+  ]
+}

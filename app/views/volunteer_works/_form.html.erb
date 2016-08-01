@@ -1,0 +1,79 @@
+<div class="ui text container">
+  <div class="ui form">
+    <%= form_for(@volunteer_work) do |f| %>
+      <% if @volunteer_work.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@volunteer_work.errors.count, "error") %> prohibited this volunteer_work from being saved:</h2>
+          <ul>
+            <% @volunteer_work.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label :company %><br>
+        <%= f.text_field :company %>
+      </div>
+
+
+         
+      <div class="field">
+        <%= f.label :dates_id %><br>
+        <%# classToSelectFrom = @volunteer_work.class.associations[:dates].model_class.to_s.constantize %>
+        <%= f.collection_select(:dates, ["2010", "2011", "2012", "2013", "2014", "2015", "2016"], :to_s, :to_s, options = {:prompt => "Please Select an Item", :selected => @volunteer_work.dates}, html_options = {:multiple => true, :class=>"search"}) %>
+      </div>
+
+
+         
+      <div class="field">
+        <%= f.label :city_id %><br>
+        <% classToSelectFrom = @volunteer_work.class.associations[:city].model_class.to_s.constantize %>
+        <%= f.collection_select(:city, classToSelectFrom.order(:name), :id, :name, options = {:prompt => "Please Select an Item", :selected => @volunteer_work.city.pluck(:id)}, html_options = {:multiple => true, :class=>"search"}) %>
+      </div>
+
+
+         
+      <div class="field">
+        <%= f.label :province_id %><br>
+        <% classToSelectFrom = @volunteer_work.class.associations[:province].model_class.to_s.constantize %>
+        <%= f.collection_select(:province, classToSelectFrom.order(:name), :id, :name, options = {:prompt => "Please Select an Item", :selected => @volunteer_work.province.pluck(:id)}, html_options = {:multiple => true, :class=>"search"}) %>
+      </div>
+
+
+         
+      <div class="field">
+        <%= f.label :skills_id %><br>
+        <% classToSelectFrom = @volunteer_work.class.associations[:skills].model_class.to_s.constantize %>
+        <%= f.collection_select(:skills, classToSelectFrom.order(:name), :id, :name, options = {:prompt => "Please Select an Item", :selected => @volunteer_work.skills.pluck(:id)}, html_options = {:multiple => true, :class=>"search"}) %>
+      </div>
+
+
+         
+      <div class="field">
+        <%= f.label :tags_id %><br>
+        <% classToSelectFrom = @volunteer_work.class.associations[:tags].model_class.to_s.constantize %>
+        <%= f.collection_select(:tags, classToSelectFrom.order(:name), :id, :name, options = {:prompt => "Please Select an Item", :selected => @volunteer_work.tags.pluck(:id)}, html_options = {:multiple => true, :class=>"search"}) %>
+      </div>
+
+
+      <div class="actions">
+        <%= f.submit html_options = {:class=>"ui button"} %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+$('.search')
+  .dropdown()
+;
+</script>

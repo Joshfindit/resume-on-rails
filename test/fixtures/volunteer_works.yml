@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  company: MyString
+  dates: one
+  city: one
+  province: one
+  skills: one
+  tags: one
+
+two:
+  name: MyString
+  company: MyString
+  dates: two
+  city: two
+  province: two
+  skills: two
+  tags: two

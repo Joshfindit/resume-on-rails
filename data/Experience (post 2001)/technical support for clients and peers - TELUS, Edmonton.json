@@ -1,0 +1,36 @@
+{
+  "job": {
+    "name": "Technical Support For Clients And Peers",
+    "start_date": "2004",
+    "end_date": "2006",
+    "company": "TELUS",
+    "city": "Edmonton",
+    "province": "Alberta"
+  },
+  "skills": [
+    {
+      "type": "Management and Process Related",
+      "name": "Kept detailed records of all work done in a central ticket-based system",
+      "description": "",
+      "tags": ["documentation"]
+    },
+    {
+      "type": "IT Related",
+      "name": "Troubleshot hardware and software",
+      "description": "",
+      "tags": ["hardware", "technical", "organization", "troubleshooting"]
+    },
+    {
+      "type": "Customer Service / Communication / Hospitality",
+      "name": "Maintained focus on customer service and metrics while faced with the challenge of non-stop support calls for 13 months",
+      "description": "",
+      "tags": ["teamwork", "support", "documentation", "high-stress environment"]
+    },
+    {
+      "type": "Customer Service / Communication / Hospitality",
+      "name": "Handled customer complaints with patience, understanding, and tact",
+      "description": "",
+      "tags": ["teamwork", "support", "high-stress environment", "community"]
+    }    
+  ]
+}

@@ -1,0 +1,83 @@
+<p id="notice"><%= notice %></p>
+
+<div class="ui very padded container ">
+  <h1>Skills</h1>
+
+  <table class="ui very basic celled table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Tags</th>
+        <th>Skill category</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <%# ProfileItem.all.to_a.shuffle.each do |profileItem| -%>
+      <% @skills.to_a.shuffle.each do |skill| %>
+        <tr>
+          <td>
+              <%= link_to skill.name, skill %>
+          </td>
+          <td>
+            <%- if !skill.tags.empty? %>
+              <%= skill.tags.map{|tag| link_to(tag.name, tag) }.join(", ").html_safe %>
+            <%- end -%>
+          </td>
+          <td>
+            <%- if !skill.skill_category.empty? %>
+              <%- skill.skill_category.each do |skill_category| -%>
+                <%= link_to skill_category.name, skill_category %>
+              <%- end -%>
+            <%- end -%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<script type="text/javascript">
+
+  var nodes = [
+    {
+      name: 'Home',
+      url: '/',
+      target: [0]
+    },
+    {
+      name: 'Education',
+      url: '/education',
+      target: [0]
+    },
+    {
+      name: 'Work Experience',
+      url: '/jobs',
+      target: [0]
+    },
+    {
+      name: 'Volunteer Work',
+      url: '/volunteer_work',
+      target: [0]
+    },
+    {
+      name: 'Skill Categories',
+      url: '/skill_categories',
+      target: [0]
+    },
+    {
+      name: 'Skills (you are here)',
+      url: '/skills',
+      target: [4]
+    },
+    {
+      name: 'Tags',
+      url: '/tags',
+      target: [5, 2]
+    }
+  ];
+</script>
+<script type="text/javascript" src="/js/ResumeIndexMenuinD3.js"></script>

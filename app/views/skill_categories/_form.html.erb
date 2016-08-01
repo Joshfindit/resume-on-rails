@@ -1,0 +1,41 @@
+<div class="ui text container">
+  <div class="ui form">
+    <%= form_for(@skill_category) do |f| %>
+      <% if @skill_category.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@skill_category.errors.count, "error") %> prohibited this skill_category from being saved:</h2>
+          <ul>
+            <% @skill_category.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+
+
+         
+      <div class="field">
+        <%= f.label :skills_id %><br>
+        <% classToSelectFrom = @skill_category.class.associations[:skills].model_class.to_s.constantize %>
+        <%= f.collection_select(:skills, classToSelectFrom.order(:name), :id, :name, options = {:prompt => "Please Select an Item", :selected => @skill_category.skills.pluck(:id)}, html_options = {:multiple => true, :class=>"search"}) %>
+      </div>
+
+
+      <div class="actions">
+        <%= f.submit html_options = {:class=>"ui button"} %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+$('.search')
+  .dropdown()
+;
+</script>

@@ -1,0 +1,54 @@
+<div class="ui text container">
+  <div class="ui form">
+    <%%= form_for(@<%= singular_table_name %>) do |f| %>
+      <%% if @<%= singular_table_name %>.errors.any? %>
+        <div id="error_explanation">
+          <h2><%%= pluralize(@<%= singular_table_name %>.errors.count, "error") %> prohibited this <%= singular_table_name %> from being saved:</h2>
+          <ul>
+            <%% @<%= singular_table_name %>.errors.full_messages.each do |message| %>
+              <li><%%= message %></li>
+            <%% end %>
+          </ul>
+        </div>
+      <%% end %>
+
+<%- attributes.each do |attribute| -%>
+<%- if attribute.name != "normalized_name" %>
+<%- if attribute.password_digest? -%>
+      <div class="field">
+        <%%= f.label :password %><br>
+        <%%= f.password_field :password %>
+      </div>
+      <div class="field">
+        <%%= f.label :password_confirmation %><br>
+        <%%= f.password_field :password_confirmation %>
+      </div>
+<%- else -%>
+<%- if attribute.reference? -%>         
+      <div class="field">
+        <%%= f.label :<%= attribute.column_name %> %><br>
+        <%% classToSelectFrom = @<%= singular_table_name %>.class.associations[:<%= attribute.column_name.split("_id").first %>].model_class.to_s.constantize %>
+        <%%= f.collection_select(:<%= attribute.column_name.split("_id").first %>, classToSelectFrom.order(:name), :id, :name, options = {:prompt => "Please Select an Item", :selected => @<%= singular_table_name %>.<%= attribute.column_name.split("_id").first %>.pluck(:id)}, html_options = {:multiple => true, :class=>"search"}) %>
+      </div>
+<%- else -%>
+      <div class="field">
+        <%%= f.label :<%= attribute.column_name %> %><br>
+        <%%= f.<%= attribute.field_type %> :<%= attribute.column_name %> %>
+      </div>
+<% end %>
+<%- end -%>
+<%- end -%>
+<%- end -%>
+
+      <div class="actions">
+        <%%= f.submit html_options = {:class=>"ui button"} %>
+      </div>
+    <%% end %>
+  </div>
+</div>
+
+<script>
+$('.search')
+  .dropdown()
+;
+</script>

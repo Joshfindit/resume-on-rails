@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<%
+  nodes = [
+    {
+      name: 'Other Profile Items',
+      url: profile_items_path
+    },
+    {
+      name: '(you are here)',
+      url: '',
+      target: [0]
+    },
+    {
+      name: 'Home',
+      url: '/',
+      target: [0]
+    },
+    {
+      name: 'Tags',
+      url: '/tags',
+      target: [0]
+    }
+  ]
+%>
+
+<div class="ui vertical masthead center aligned segment">
+  <h1 class="ui header">Profile Item</h1>
+</div>
+
+<div class="ui text container">
+
+  <p>
+    <strong>Name:</strong>
+    <%= @profile_item.name -%>
+  </p>
+
+  <%- if @profile_item.start_date.presence -%>
+    <p>
+      <strong>Start date:</strong>
+      <%= @profile_item.start_date -%>
+    </p>
+  <%- end -%>
+
+  <%- if @profile_item.end_date.presence -%>
+    <p>
+      <strong>End date:</strong>
+      <%= @profile_item.end_date -%>
+    </p>
+  <%- end -%>
+
+  <p>
+    <% if !@profile_item.tags.empty? -%>
+      <strong>Tags:</strong>
+      <%= @profile_item.tags.map{|tag| link_to(tag.name, tag) }.join(", ").html_safe %>
+    <% end -%>
+  </p>
+</div>
+
+<div class="ui hidden divider"></div>
+
+<script type="text/javascript">
+  var nodes = <%= raw nodes.to_json %>;
+</script>
+<script type="text/javascript" src="/js/ResumeIndexMenuinD3.js"></script>

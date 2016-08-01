@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<div class="ui vertical masthead center aligned segment">
+  <h1 class="ui header">Cities</h1>
+</div>
+
+<div class="ui text container">
+  <div class="ui bulleted list">
+    <% @cities.each do |city| %>
+      <div class="item">
+        <%= link_to city.name, city -%>
+        <%- if !city.province.empty? -%>
+          <%= ", " -%> 
+          <%= link_to city.province.first.name, city.province.first -%>
+        <%- end -%>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+var nodes = [
+    {
+      name: 'Home',
+      url: '/',
+      target: [0]
+    },
+    {
+      name: 'Provinces',
+      url: '/provinces',
+      target: [0]
+    },
+    {
+      name: 'Cities (you are here)',
+      url: '/cities',
+      target: [1]
+    },
+    {
+      name: 'Education',
+      url: '/education',
+      target: [0]
+    },
+    {
+      name: 'Work Experience',
+      url: '/jobs',
+      target: [0]
+    },
+    {
+      name: 'Volunteer Work',
+      url: '/volunteer_work',
+      target: [0]
+    }
+  ];
+</script>
+
+
+<script type="text/javascript" src="/js/ResumeIndexMenuinD3.js"></script>

@@ -1,0 +1,110 @@
+<p id="notice"><%= notice %></p>
+
+<div class="ui very padded container ">
+  <h1>Volunteer Work</h1>
+
+  <table class="ui very basic celled table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Company</th>
+        <th>Dates</th>
+        <th>City</th>
+        <th>Province</th>
+        <th>Skills</th>
+        <th>Tags</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @volunteer_works.each do |volunteer_work| %>
+        <tr>
+          <td>
+              <%= link_to volunteer_work.name, volunteer_work %>
+          </td>
+          <td>
+            <%- if !volunteer_work.company.nil? %>
+              <%= volunteer_work.company %>
+            <%- end %>
+          </td>
+          <td>
+            <%- if !volunteer_work.dates.empty? %>
+              <%- volunteer_work.dates.each do |date| -%>
+                <%= date %>
+              <%- end -%>
+            <%- end -%>
+          </td>
+          <td>
+            <%- if !volunteer_work.city.empty? %>
+              <%- volunteer_work.city.each do |city| -%>
+                <%= link_to city.name, city %>
+              <%- end -%>
+            <%- end -%>
+          </td>
+          <td>
+            <%- if !volunteer_work.province.empty? %>
+              <%- volunteer_work.province.each do |province| -%>
+                <%= link_to province.name, province %>
+              <%- end -%>
+            <%- end -%>
+          </td>
+          <td>
+            <%- if !volunteer_work.skills.empty? %>
+              <%= volunteer_work.skills.map{|skill| link_to(skill.name, skill) }.join(", ").html_safe %>
+            <%- end -%>
+          </td>
+          <td>
+            <%- if !volunteer_work.tags.empty? %>
+              <%= volunteer_work.tags.map{|tag| link_to(tag.name, tag) }.join(", ").html_safe %>
+            <%- end -%>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<script type="text/javascript">
+
+  var nodes = [
+    {
+      name: 'Home',
+      url: '/',
+      target: [0]
+    },
+    {
+      name: 'Provinces',
+      url: '/provinces',
+      target: [0]
+    },
+    {
+      name: 'Cities',
+      url: '/cities',
+      target: [1]
+    },
+    {
+      name: 'Education',
+      url: '/education',
+      target: [0]
+    },
+    {
+      name: 'Work Experience',
+      url: '/jobs',
+      target: [0]
+    },
+    {
+      name: 'Volunteer Work (you are here)',
+      url: '/volunteer_work',
+      target: [0]
+    },
+    {
+      name: 'Skills',
+      url: '/skills',
+      target: [0]
+    }
+  ];
+</script>
+<script type="text/javascript" src="/js/ResumeIndexMenuinD3.js"></script>

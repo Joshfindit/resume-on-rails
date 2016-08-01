@@ -1,0 +1,73 @@
+<div class="ui text container">
+  <div class="ui form">
+    <%= form_for(@education) do |f| %>
+      <% if @education.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@education.errors.count, "error") %> prohibited this education from being saved:</h2>
+          <ul>
+            <% @education.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label :more_info %><br>
+        <%= f.text_area :more_info %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label :start_date %><br>
+        <%= f.text_field :start_date %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label :end_date %><br>
+        <%= f.text_field :end_date %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label :company %><br>
+        <%= f.text_field :company %>
+      </div>
+
+
+         
+      <div class="field">
+        <%= f.label :city_id %><br>
+        <% classToSelectFrom = @education.class.associations[:city].model_class.to_s.constantize %>
+        <%= f.collection_select(:city, classToSelectFrom.order(:name), :id, :name, options = {:prompt => "Please Select an Item", :selected => @education.city.pluck(:id)}, html_options = {:multiple => true, :class=>"search"}) %>
+      </div>
+
+
+         
+      <div class="field">
+        <%= f.label :province_id %><br>
+        <% classToSelectFrom = @education.class.associations[:province].model_class.to_s.constantize %>
+        <%= f.collection_select(:province, classToSelectFrom.order(:name), :id, :name, options = {:prompt => "Please Select an Item", :selected => @education.province.pluck(:id)}, html_options = {:multiple => true, :class=>"search"}) %>
+      </div>
+
+
+      <div class="actions">
+        <%= f.submit html_options = {:class=>"ui button"} %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+$('.search')
+  .dropdown()
+;
+</script>

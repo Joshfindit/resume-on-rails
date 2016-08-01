@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>ResumeSite</title>
+
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+
+    <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.1/components/form.min.css">
+    <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.1/components/dropdown.min.css">
+    <link rel="stylesheet" media="all" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.1/semantic.min.css">
+    <link rel="stylesheet" media="all" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.1/semantic.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.1/components/form.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.1/components/dropdown.min.js"></script>
+    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" src="http://joshfindit.github.io/Geometry-in-D3.js/js/GeometryinD3js-Functions.js"></script>
+
+
+<!--     <link rel="stylesheet" media="all" href="/css/form.min.css">
+    <link rel="stylesheet" media="all" href="/css/dropdown.min.css">
+    <link rel="stylesheet" media="all" href="/css/semantic.min.css">
+    <link rel="stylesheet" media="all" href="/css/font-awesome.css">
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/semantic.min.js"></script>
+    <script type="text/javascript" src="/js/form.min.js"></script>
+    <script type="text/javascript" src="/js/dropdown.min.js"></script>
+    <script type="text/javascript" src="/js/d3.v3.min.js"></script>
+    <script type="text/javascript" src="/js/GeometryinD3js-Functions.js"></script> -->
+
+    <style>
+    #D3Header { margin-left: auto; margin-right: auto; display: block; }
+    .links line {
+      stroke: #999;
+      stroke-opacity: 0.6;
+    }
+
+    .nodes circle {
+      stroke: #fff;
+      stroke-width: 1.5px;
+    }
+
+    .resumedetail {
+        color: #AAA; /* Fallback for older browsers */
+        color: rgba(0, 0, 0, 0.2);
+    }
+
+    .nodelabel {
+        cursor: pointer;
+    }
+    </style>
+    <%= csrf_meta_tags %>
+
+  </head>
+
+<style>
+
+
+
+</style>
+  <body>
+    <div class="ui hidden divider"></div>
+    <!-- <div id="D3Header" align="center"></div> -->
+    <svg width="100" height="100"></svg>
+    <%= yield %>
+    <div class="ui hidden divider"></div>
+  </body>
+</html>

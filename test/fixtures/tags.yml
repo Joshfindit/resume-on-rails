@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  tagged_skill: one
+  tagged_profile_item: one
+
+two:
+  name: MyString
+  tagged_skill: two
+  tagged_profile_item: two

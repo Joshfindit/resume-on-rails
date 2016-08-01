@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="ui hidden divider"></div>
+
+<div class="ui vertical masthead center aligned segment">
+  <h1 class="ui header">Skill Categories</h1>
+</div>
+
+
+<div class="ui text container">
+  <% @skill_categories.each do |skill_category| %>
+    <p>
+      <%- if !skill_category.skills.empty? %>
+        <strong><%= link_to skill_category.name, skill_category %></strong>
+        <div class="ui bulleted list">
+          <%- skill_category.skills.each do |skill| -%>
+            <div class="item"><%= link_to skill.name, skill %></div>
+          <%- end -%>
+        </div>
+      <%- end -%>
+    </p>
+  <% end %>
+</div>
+
+
+
+<script type="text/javascript">
+
+  var nodes = [
+    {
+      name: 'Home',
+      url: '/',
+      target: [0]
+    },
+    {
+      name: 'Skill Categories (you are here)',
+      url: '/skill_categories',
+      target: [0]
+    },
+    {
+      name: 'Skills',
+      url: '/skills',
+      target: [1]
+    },
+    {
+      name: 'Tags',
+      url: '/tags',
+      target: [2]
+    }
+  ];
+</script>
+<script type="text/javascript" src="/js/ResumeIndexMenuinD3.js"></script>

@@ -1,0 +1,60 @@
+<p id="notice"><%%= notice %></p>
+
+<div class="ui very padded container ">
+  <h1><%= plural_table_name.titleize %></h1>
+
+  <table class="ui very basic celled table">
+    <thead>
+      <tr>
+<%- attributes.reject(&:password_digest?).each do |attribute| -%>
+        <th><%= attribute.human_name %></th>
+<%- end -%>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%% @<%= plural_table_name %>.limit(45).each do |<%= singular_table_name %>| %>
+        <tr>
+<%- attributes.reject(&:password_digest?).each do |attribute| -%>
+<%- if attribute.name != "normalized_name" -%>
+<%- if attribute.name == "name" -%>
+          <td>
+              <%%= link_to <%= singular_table_name %>.<%= attribute.name %>, <%= singular_table_name %> %>
+          </td>
+<%- elsif attribute.name == "content" || attribute.name == "description"  -%>
+          <td>
+            <%%- if !<%= singular_table_name %>.<%= attribute.name %>.nil? %>
+              <%%= truncate(<%= singular_table_name %>.<%= attribute.name %>, :length => 30, :separator => ' ') %>
+            <%%- end %>
+          </td>
+<%- else -%>
+<%- if attribute.reference? -%>
+          <td>
+            <%%- if !<%= singular_table_name %>.<%= attribute.name %>.empty? %>
+              <%%- <%= singular_table_name %>.<%= attribute.name %>.each do |<%= attribute.name %>| -%>
+                <%%= link_to <%= attribute.name %>.name, <%= attribute.name %> %>
+              <%%- end -%>
+            <%%- end -%>
+          </td>
+<%- else -%>
+          <td>
+            <%%- if !<%= singular_table_name %>.<%= attribute.name %>.nil? %>
+              <%%= <%= singular_table_name %>.<%= attribute.name %> %>
+            <%%- end %>
+          </td>
+<%- end -%>
+<%- end -%>
+<%- end -%>
+<%- end -%>
+          <td><%%= link_to 'Edit', edit_<%= singular_table_name %>_path(<%= singular_table_name %>) %></td>
+          <td><%%= link_to 'Destroy', <%= singular_table_name %>, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <%% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%%= link_to 'New <%= singular_table_name.titleize %>', new_<%= singular_table_name %>_path %>
+</div>

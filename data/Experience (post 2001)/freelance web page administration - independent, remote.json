@@ -1,0 +1,42 @@
+{
+  "job": {
+    "name": "Freelance Web Page Implementation / Maintenance / Upkeep",
+    "start_date": "2003",
+    "end_date": "Ongoing",
+    "company": "Independent/Contract Work",
+    "city": "Local and Remote",
+    "province": "Various Areas"
+  },
+  "skills": [
+      {
+        "type": "IT Related",
+        "name": "Created software that manages servers in the Cloud",
+        "description": "",
+        "tags": ["programming", "system management"]
+      },
+      {
+        "type": "IT Related",
+        "name": "Implemented various client websites with the requirements of: Speed, compatibility, legacy support, graphic presence, branding, and ease of use",
+        "description": "",
+        "tags": ["technical", "organization"]
+      },
+      {
+        "type": "Management and Process Related",
+        "name": "Hired designers when appropriate to deliver the best end-result",
+        "description": "",
+        "tags": ["delegation"]
+      },
+      {
+        "type": "Management and Process Related",
+        "name": "Created aggressive budgets, and held to them",
+        "description": "",
+        "tags": ["", ""]
+      },
+      {
+        "type": "Customer Service / Communication / Hospitality",
+        "name": "Create training material to educate staff on how to maintain the website and update content",
+        "description": "- Created screen-capture video training\n- Created multi-page PDF documentation\n- Created presentations and presented the material to staff in-person",
+        "tags": ["", ""]
+      }
+  ]
+}

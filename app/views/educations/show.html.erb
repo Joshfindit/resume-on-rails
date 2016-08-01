@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+<%
+  nodes = [
+    {
+      name: 'Other Education',
+      url: educations_path
+    },
+    {
+      name: '(you are here)',
+      url: '',
+      target: [0]
+    },
+    {
+      name: 'Home',
+      url: '/',
+      target: [0]
+    }
+  ]
+%>
+
+<div class="ui vertical masthead center aligned segment">
+  <h1 class="ui header">Education</h1>
+</div>
+
+<div class="ui text container">
+
+  <p>
+    <strong>Name:</strong>
+    <%= @education.name -%>
+  </p>
+
+  <p>
+    <strong>More info:</strong>
+    <%= @education.more_info -%>
+  </p>
+
+  <p>
+    <strong>Start date:</strong>
+    <%= @education.start_date -%>
+  </p>
+
+  <p>
+    <strong>End date:</strong>
+    <%= @education.end_date -%>
+  </p>
+
+  <p>
+    <strong>Company:</strong>
+    <%= @education.company -%>
+  </p>
+
+  <p>
+    <strong>City:</strong>
+    <% if !@education.city.nil? -%>
+      <% @education.city.each do |city| -%>
+        <%= link_to city.name, city %>
+      <% end -%>
+    <% end -%>
+  </p>
+
+  <p>
+    <strong>Province:</strong>
+    <% if !@education.province.nil? -%>
+      <% @education.province.each do |province| -%>
+        <%= link_to province.name, province %>
+      <% end -%>
+    <% end -%>
+  </p>
+</div>
+
+
+<script type="text/javascript">
+  var nodes = <%= raw nodes.to_json %>;
+</script>
+<script type="text/javascript" src="/js/ResumeIndexMenuinD3.js"></script>

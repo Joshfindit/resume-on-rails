@@ -1,0 +1,36 @@
+{
+  "job": {
+    "name": "Technical Support, Training, Assembly of Computer Systems, Modification",
+    "start_date": "1991",
+    "end_date": "Ongoing",
+    "company": "Independent/Contract Work",
+    "city": "Edmonton and Surrounding Areas",
+    "province": "Alberta"
+  },
+  "skills": [
+    {
+      "type": "IT Related",
+      "name": "Created comprehensive processes and documentation in easy to understand formats",
+      "description": "",
+      "tags": ["documentation", "teaching people"]
+    },
+    {
+      "type": "IT Related",
+      "name": "Installed PC, Mac, Linux desktop computers, laptops and servers in small and large scale networks",
+      "description": "",
+      "tags": ["hardware", "technical"]
+    },
+    {
+      "type": "IT Related",
+      "name": "Troubleshot hardware and software components, prioritizing to take the proper steps and resolve advanced (business critical) problems/glitches",
+      "description": "",
+      "tags": ["hardware", "technical", "organization"]
+    },
+    {
+      "type": "IT Related",
+      "name": "Created software that manages servers in the Cloud",
+      "description": "",
+      "tags": ["programming", "scaling", "system management"]
+    }
+  ]
+}

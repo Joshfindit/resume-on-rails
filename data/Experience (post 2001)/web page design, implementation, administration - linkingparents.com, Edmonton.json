@@ -1,0 +1,24 @@
+{
+  "job": {
+    "name": "Web Page Implementation / Maintenance / Upkeep",
+    "start_date": "2003",
+    "end_date": "2010",
+    "company": "LinkingParents.com",
+    "city": "Edmonton",
+    "province": "Alberta"
+  },
+  "skills": [
+    {
+      "type": "IT Related",
+      "name": "Implemented client website to meet the needs of Edmonton parents. Forums, resources, marketing pages",
+      "description": "Through the time wortking with LinkingParents.com, we built up a local community of over 10,000, hosted events, helped bring support to those who needed it, and forged new relationships.\nOn the technical side, php-based technologies used throughout each version, and there were 4 major versions",
+      "tags": ["technical", "organization", "community", "php"]
+    },
+    {
+      "type": "Customer Service / Communication / Hospitality",
+      "name": "Collaborated with moderators and organizers to promote community events",
+      "description": "",
+      "tags": ["delegation", "community"]
+    }
+  ]
+}

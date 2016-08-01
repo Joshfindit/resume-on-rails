@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<%
+  nodes = [
+    {
+      name: 'Other Provinces',
+      url: provinces_path
+    },
+    {
+      name: 'you are here',
+      url: '',
+      target: [0]
+    } 
+  ]
+%>
+
+<div class="ui vertical masthead center aligned segment">
+  <h1 class="ui header"><%= @province.name -%></h1>
+</div>
+
+<div class="ui text container">
+
+  <p>
+    <strong>Cities:</strong>
+    <% if !@province.city.empty? -%>
+      <div class="ui bulleted list">
+        <% @province.city.sort { |a,b| a.name <=> b.name }.each do |city| -%>
+          <% nodes.push({name: city.name, url: city_url(city), target: [1] }) %>
+          <div class="item"><%= link_to city.name, city %></div>
+        <% end -%>
+      </div>
+    <% end -%>
+  </p>
+
+  <p>
+    <% if !@province.job_here.empty? -%>
+      <strong>Experience here:</strong>
+      <div class="ui bulleted list">
+        <% @province.job_here.sort { |a,b| a.end_date <=> b.end_date }.each do |job_here| -%>
+          <div class="item"><%= link_to job_here.name, job_here %></div>
+        <% end -%>
+      </div>
+    <% end -%>
+  </p>
+
+  <p>
+    <% if !@province.education_here.empty? -%>
+      <strong>Education here:</strong>
+      <div class="ui bulleted list">
+        <% @province.education_here.sort { |b,a| a.end_date <=> b.end_date }.each do |education_here| -%>
+          <div class="item"><%= link_to education_here.name, education_here %></div>
+        <% end -%>
+      </div>
+    <% end -%>
+  </p>
+
+  <p>
+    <% if !@province.volunteerwork_here.empty? -%>
+      <strong>Volunteer Work here:</strong>
+      <div class="ui bulleted list">
+        <% @province.volunteerwork_here.sort { |b,a| a.dates[0] <=> b.dates[0] }.each do |volunteerwork_here| -%>
+          <div class="item"><%= link_to volunteerwork_here.name, volunteerwork_here %></div>
+        <% end -%>
+      </div>
+    <% end -%>
+  </p>
+</div>
+<div class="ui hidden divider"></div>
+
+
+<<script type="text/javascript">
+  var nodes = <%= raw nodes.to_json %>;
+</script>
+<script type="text/javascript" src="/js/ResumeIndexMenuinD3.js"></script>

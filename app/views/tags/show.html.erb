@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<%
+  nodes = [
+    {
+      name: 'Other Tags',
+      url: tags_path
+    },
+    {
+      name: '(you are here)',
+      url: '',
+      target: [0]
+    },
+    {
+      name: 'Home',
+      url: '/',
+      target: [0]
+    }
+  ]
+%>
+
+<div class="ui vertical masthead center aligned segment">
+  <h1 class="ui header">Tag: <%= @tag.name -%></h1>
+</div>
+
+<div class="ui text container">
+
+  <p>
+    <% if !@tag.tagged_skill.empty? -%>
+      <strong>Tagged skills:</strong>
+      <div class="ui bulleted list">
+        <% @tag.tagged_skill.each do |tagged_skill| -%>
+          <div class="item"><%= link_to tagged_skill.name, tagged_skill %></div>
+        <% end -%>
+      </div>
+    <% end -%>
+  </p>
+
+  <p>
+    <% if !@tag.tagged_profile_item.empty? -%>
+      <strong>Tagged profile items:</strong>
+      <div class="ui bulleted list">
+        <% @tag.tagged_profile_item.each do |tagged_profile_item| -%>
+          <div class="item"><%= link_to tagged_profile_item.name, tagged_profile_item %></div>
+        <% end -%>
+      </div>
+    <% end -%>
+  </p>
+    <p>
+    <% if !@tag.tagged_volunteer_work.empty? -%>
+      <strong>Tagged volunteer work:</strong>
+      <div class="ui bulleted list">
+        <% @tag.tagged_volunteer_work.each do |tagged_volunteer_work| -%>
+          <div class="item"><%= link_to tagged_volunteer_work.name, tagged_volunteer_work %></div>
+        <% end -%>
+      </div>
+    <% end -%>
+  </p>
+</div>
+
+<script type="text/javascript">
+  var nodes = <%= raw nodes.to_json %>;
+</script>
+<script type="text/javascript" src="/js/ResumeIndexMenuinD3.js"></script>

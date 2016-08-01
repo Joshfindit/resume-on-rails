@@ -1,0 +1,102 @@
+{
+  "job": {
+    "name": "National IT Manager",
+    "start_date": "2006",
+    "end_date": "2008",
+    "company": "XS Cargo GP Inc.",
+    "city": "Edmonton",
+    "province": "Alberta"
+  },
+  "skills": [
+    {
+      "type": "IT Related",
+      "name": "Created software that manages servers in the Cloud",
+      "description": "",
+      "tags": ["programming", "system management"]
+    },
+    {
+      "type": "IT Related",
+      "name": "Implemented a completely new Windows-based POS system across 40 stores in the span of 2 weeks without interrupting sales",
+      "description": "",
+      "tags": ["technical", "organization", "scaling", "strategy", "system management"]
+    },
+    {
+      "type": "IT Related",
+      "name": "Created a nationwide VPN that enabled realtime sales updating, as well as controlled access from roaming and telecommuting employees",
+      "description": "",
+      "tags": ["technical", "organization", "scaling", "strategy", "system management", "vpn"]
+    },
+    {
+      "type": "IT Related",
+      "name": "Migrated and consolidated multiple old servers to VMWare Virtual Machines without interrupting functionality",
+      "description": "",
+      "tags": ["technical", "organization", "strategy", "system management", "VMWare"]
+    },
+    {
+      "type": "Management and Process Related",
+      "name": "Created comprehensive processes and documentation in an easy to understand format",
+      "description": "",
+      "tags": ["documentation", "teaching people"]
+    },
+    {
+      "type": "IT Related",
+      "name": "Installed PC, Mac, Linux desktops / laptops and servers in small and large scale networks",
+      "description": "",
+      "tags": ["technical", "organization", "scaling", "strategy", "system management", "vpn"]
+    },
+    {
+      "type": "IT Related",
+      "name": "Confidently installed and configured critical user software, MS Office, Adobe Creative Suite, and hundreds of varied other applications; commercial, and open source software",
+      "description": "When anyone through the company needed an application installed, it would go through the apporval process, be added to the 'Applications' shared folder, the user would be given permission, and then the IT staff would install it.\nIn the case of employees with more technical skill, they could install themselves once being granted the permissions.",
+      "tags": ["technical", "organization", "scaling", "strategy", "system management"]
+    },
+    {
+      "type": "Management and Process Related",
+      "name": "Created departmental and nationwide processes, measurably reducing resources required for support, and re-prioritizing critical issues",
+      "description": "",
+      "tags": ["system management", "technical", "strategy"]
+    },
+    {
+      "type": "Management and Process Related",
+      "name": "Increased department efficiency, allowing a reduction in mean time to resolution from 2 days to 1 hour on critical processes",
+      "description": "",
+      "tags": ["system management", "technical", "teamwork", "strategy"]
+    },
+    {
+      "type": "Management and Process Related",
+      "name": "Managed and worked with a small team to support 40 stores, 2 warehouses, main office, and branch office in all manner of computer-related tasks",
+      "description": "",
+      "tags": ["system management", "technical", "teamwork", "strategy"]
+    },
+    {
+      "type": "Management and Process Related",
+      "name": "Worked alone with the same responsibilities, while continuing to push forward with new projects",
+      "description": "",
+      "tags": ["system management", "technical", "strategy"]
+    },
+    {
+      "type": "Management and Process Related",
+      "name": "Reduced cost of implementation of a new POS system while decreasing required resources and timeframe",
+      "description": "",
+      "tags": ["finance", "strategy"]
+    },
+    {
+      "type": "Management and Process Related",
+      "name": "Formed vendor relationships, leveraging business purchase power to reduce costs by 60%",
+      "description": "",
+      "tags": ["finance", "negotiation", "technical", "strategy", "delegation"]
+    },
+    {
+      "type": "Management and Process Related",
+      "name": "Created aggressive budgets, and held to them",
+      "description": "",
+      "tags": ["finance", "strategy", "delegation"]
+    },
+    {
+      "type": "Customer Service / Communication / Hospitality",
+      "name": "Trained staff and provided on-going maintenance / support",
+      "description": "",
+      "tags": ["teamwork", "support", "teaching people", "documentation"]
+    }
+  ]
+}

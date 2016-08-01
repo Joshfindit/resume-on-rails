@@ -1,0 +1,76 @@
+<p id="notice"><%= notice %></p>
+
+<%
+  nodes = [
+    {
+      name: 'Other Cities',
+      url: cities_path
+    },
+    {
+      name: '(you are here)',
+      url: '',
+      target: [0]
+    },
+    {
+      name: 'Home',
+      url: '/',
+      target: [0]
+    }
+  ]
+%>
+
+<div class="ui vertical masthead center aligned segment">
+  <h1 class="ui header"><%= @city.name -%></h1>
+</div>
+
+<div class="ui text container">
+
+  <p>
+    <% if !@city.province.empty? -%>
+      <strong>Province:</strong>
+      <% @city.province.each do |province| -%>
+        <%- nodes.push({name: province.name, url: province_url(province), target: [1] }) -%>
+        <%= link_to province.name, province %>
+      <% end -%>
+    <% end -%>
+  </p>
+
+  <p>
+    <% if !@city.job_here.empty? -%>
+      <strong>Experience here:</strong>
+      <div class="ui bulleted list">
+        <% @city.job_here.each do |job_here| -%>
+          <div class="item"><%= link_to job_here.name, job_here %></div>
+        <% end -%>
+      </div>
+    <% end -%>
+  </p>
+
+  <p>
+    <% if !@city.education_here.empty? -%>
+      <strong>Education here:</strong>
+      <div class="ui bulleted list">
+        <% @city.education_here.each do |education_here| -%>
+          <div class="item"><%= link_to education_here.name, education_here %></div>
+        <% end -%>
+      </div>
+    <% end -%>
+  </p>
+
+  <p>
+    <% if !@city.volunteer_work_here.empty? -%>
+      <strong>Volunteer work here:</strong>
+      <div class="ui bulleted list">
+        <% @city.volunteer_work_here.each do |volunteer_work_here| -%>
+          <div class="item"><%= link_to volunteer_work_here.name, volunteer_work_here %></div>
+        <% end -%>
+      </div>
+    <% end -%>
+  </p>
+</div>
+
+
+<script type="text/javascript">
+  var nodes = <%= raw nodes.to_json %>;
+</script>
+<script type="text/javascript" src="/js/ResumeIndexMenuinD3.js"></script>

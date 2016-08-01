@@ -1,0 +1,37 @@
+<p id="notice"><%%= notice %></p>
+
+<div class="ui">
+  <a class="ui labeled icon button" href="<%%= <%= index_helper %>_path %>">
+    <i class="up arrow icon"></i>
+    List <%= plural_table_name.titleize %>
+  </a>
+  <a class="ui basic icon button" href="<%%= edit_<%= singular_table_name %>_path(@<%= singular_table_name %>) %>">
+    <i class="edit icon"></i>
+    Edit
+  </a>
+</div>
+
+<div class="ui hidden divider"></div>
+
+<div class="ui vertical masthead center aligned segment">
+  <h1 class="ui header"><%= singular_table_name.titleize %></h1>
+</div>
+
+<div class="ui text container">
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+<%- if attribute.name != "normalized_name" %>
+  <p>
+    <strong><%= attribute.human_name %>:</strong>
+<% if attribute.reference? -%>
+    <%% if !@<%= singular_table_name %>.<%= attribute.name %>.nil? -%>
+      <%% @<%= singular_table_name %>.<%= attribute.name %>.each do |<%= attribute.name %>| -%>
+        <%%= link_to <%= attribute.name %>.name, <%= attribute.name %> %>
+      <%% end -%>
+    <%% end -%>
+<% else -%>
+    <%%= @<%= singular_table_name %>.<%= attribute.name %> -%>
+<% end -%>
+  </p>
+<% end -%>
+<% end -%>
+</div>
