@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   resources :skills
   get "/about" => "static_about#index"
   get "/contact" => "static_contact#index"
+  get "/thanks" => "static_formspree_thanks#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
