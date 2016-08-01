@@ -47,6 +47,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'neo4j'
 gem 'font-awesome-rails'
+gem 'neo4jrb-paperclip', require: 'neo4jrb_paperclip'
 gem 'redcarpet'
 gem 'reverse_markdown'
 gem 'figaro' #environment variables
